@@ -15,10 +15,10 @@ jobs:
         run: npm install
         shell: bash
       - name: Prepare
-        run: npm run release.prepare
+        run: lerna bootstrap -- --legacy-peer-deps
         shell: bash
       - name: Create Dev Build
-        run: npm run release.dev -- --yes
+        run: lerna publish --ignore-scripts --force-publish='*' --canary --dist-tag dev --preid dev
         shell: bash
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
