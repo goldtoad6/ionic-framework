@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/*"
+    "packages/*",
+    "angular"
   ],
-  "version": "0.0.0"
+  "version": "5.9.2"
 }
