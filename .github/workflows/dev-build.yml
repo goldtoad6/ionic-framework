@@ -17,6 +17,11 @@ jobs:
       - name: Prepare
         run: lerna bootstrap -- --legacy-peer-deps
         shell: bash
+      - name: Prepare NPM Token
+        run: echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > .npmrc
+        shell: bash
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Create Dev Build
         run: lerna publish --no-verify-access --yes --ignore-scripts --force-publish='*' --canary --dist-tag dev --preid dev
         shell: bash
